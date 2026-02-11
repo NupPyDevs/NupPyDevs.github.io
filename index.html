@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NupPy Hacks</title>
+<title>NupPy</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 <style>
 
@@ -17,22 +17,29 @@ scroll-behavior:smooth;
 
 body{
 background:black;
-color:#00ffcc;
+color:#00ff00;
+overflow:hidden;
+}
+
+/* Matrix canvas */
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
 }
 
 /* Menü */
 nav{
 position:fixed;
 width:100%;
-background:#050505;
 padding:15px;
 text-align:center;
-border-bottom:1px solid #00ffcc33;
-z-index:1000;
+z-index:10;
 }
 
 nav a{
-color:#00ffcc;
+color:#00ff00;
 text-decoration:none;
 margin:0 25px;
 transition:0.3s;
@@ -40,7 +47,7 @@ transition:0.3s;
 
 nav a:hover{
 color:white;
-text-shadow:0 0 10px #00ffcc;
+text-shadow:0 0 10px #00ff00;
 }
 
 /* Bölümler */
@@ -54,70 +61,48 @@ text-align:center;
 padding:40px;
 }
 
-#home{
-background:radial-gradient(circle at center,#001f1f,#000);
-}
-
-#download{
-background:#050505;
-}
-
-#about{
-background:#080808;
-}
-
-#contact{
-background:#030303;
-}
-
 h1{
 font-size:40px;
 margin-bottom:20px;
-text-shadow:0 0 15px #00ffcc;
+text-shadow:0 0 15px #00ff00;
 }
 
 p{
-max-width:600px;
 opacity:0.8;
+max-width:600px;
 }
 
 .btn{
 display:inline-block;
 margin-top:25px;
 padding:15px 35px;
-border:2px solid #00ffcc;
-color:#00ffcc;
+border:2px solid #00ff00;
+color:#00ff00;
 text-decoration:none;
 transition:0.3s;
 border-radius:5px;
 }
 
 .btn:hover{
-background:#00ffcc;
+background:#00ff00;
 color:black;
-box-shadow:0 0 20px #00ffcc;
-}
-
-footer{
-background:black;
-padding:15px;
-text-align:center;
-border-top:1px solid #00ffcc33;
+box-shadow:0 0 20px #00ff00;
 }
 
 </style>
 </head>
 <body>
 
+<canvas id="matrix"></canvas>
+
 <nav>
 <a href="#home">Ana Sayfa</a>
 <a href="#download">İndir</a>
-<a href="#about">Hakkında</a>
 </nav>
 
 <section id="home">
 <h1>⚡ NupPy Hacks</h1>
-<p>Resmi indirme ve proje platformuna hoş geldin.</p>
+<p>Resmi indirme platformuna hoş geldin.</p>
 <a href="#download" class="btn">Sisteme Gir</a>
 </section>
 
@@ -127,14 +112,46 @@ border-top:1px solid #00ffcc33;
 <a href="dosya.zip" download class="btn">DOWNLOAD</a>
 </section>
 
-<section id="about">
-<h1>💻 Hakkında</h1>
-<p>Bu platform projelerimizi paylaşmak için oluşturuldu. Güncellemeler düzenli olarak eklenmektedir.</p>
-</section>
+<script>
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
 
-<footer>
-© 2026 Cyber Project
-</footer>
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+
+const letters = "アァカサタナハマヤャラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const fontSize = 14;
+const columns = canvas.width / fontSize;
+const drops = [];
+
+for(let x = 0; x < columns; x++)
+    drops[x] = 1;
+
+function draw(){
+    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#00ff00";
+    ctx.font = fontSize + "px monospace";
+
+    for(let i = 0; i < drops.length; i++){
+        const text = letters.charAt(Math.floor(Math.random() * letters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if(drops[i] * fontSize > canvas.height && Math.random() > 0.975)
+            drops[i] = 0;
+
+        drops[i]++;
+    }
+}
+
+setInterval(draw, 35);
+
+window.addEventListener("resize", () => {
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+});
+</script>
 
 </body>
 </html>
