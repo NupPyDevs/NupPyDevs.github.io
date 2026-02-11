@@ -21,12 +21,56 @@ color:#00ff00;
 overflow:hidden;
 }
 
-/* Matrix canvas */
+/* Matrix */
 canvas{
 position:fixed;
 top:0;
 left:0;
-z-index:-1;
+z-index:-2;
+}
+
+/* Login ekranı */
+#loginScreen{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.95);
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:1000;
+}
+
+#loginScreen input{
+padding:10px;
+background:black;
+border:1px solid #00ff00;
+color:#00ff00;
+margin-top:15px;
+text-align:center;
+}
+
+#loginScreen button{
+margin-top:15px;
+padding:10px 25px;
+background:black;
+border:1px solid #00ff00;
+color:#00ff00;
+cursor:pointer;
+}
+
+#loginScreen button:hover{
+background:#00ff00;
+color:black;
+}
+
+#error{
+color:red;
+margin-top:10px;
+font-size:14px;
 }
 
 /* Menü */
@@ -42,15 +86,8 @@ nav a{
 color:#00ff00;
 text-decoration:none;
 margin:0 25px;
-transition:0.3s;
 }
 
-nav a:hover{
-color:white;
-text-shadow:0 0 10px #00ff00;
-}
-
-/* Bölümler */
 section{
 min-height:100vh;
 display:flex;
@@ -67,11 +104,6 @@ margin-bottom:20px;
 text-shadow:0 0 15px #00ff00;
 }
 
-p{
-opacity:0.8;
-max-width:600px;
-}
-
 .btn{
 display:inline-block;
 margin-top:25px;
@@ -79,14 +111,12 @@ padding:15px 35px;
 border:2px solid #00ff00;
 color:#00ff00;
 text-decoration:none;
-transition:0.3s;
 border-radius:5px;
 }
 
 .btn:hover{
 background:#00ff00;
 color:black;
-box-shadow:0 0 20px #00ff00;
 }
 
 </style>
@@ -95,6 +125,14 @@ box-shadow:0 0 20px #00ff00;
 
 <canvas id="matrix"></canvas>
 
+<!-- LOGIN -->
+<div id="loginScreen">
+<h1>🔐 ACCESS REQUIRED</h1>
+<input type="password" id="password" placeholder="Enter Password">
+<button onclick="checkPassword()">ENTER</button>
+<div id="error"></div>
+</div>
+
 <nav>
 <a href="#home">Main Menu</a>
 <a href="#download">Download</a>
@@ -102,17 +140,30 @@ box-shadow:0 0 20px #00ff00;
 
 <section id="home">
 <h1>⚡ NupPy Hacks</h1>
-<p>Welcome To Offical Download Page.</p>
+<p>Welcome To Official Download Page.</p>
 <a href="#download" class="btn">Go To Download</a>
 </section>
 
 <section id="download">
 <h1>📥 Download Centre</h1>
-<p>Click To Download.</p>
 <a href="dosya.zip" download class="btn">DOWNLOAD</a>
 </section>
 
 <script>
+
+/* ŞİFRE KONTROL */
+function checkPassword(){
+const correctPassword = "nuppy2026"; // BURAYI değiştir
+const entered = document.getElementById("password").value;
+
+if(entered === correctPassword){
+document.getElementById("loginScreen").style.display = "none";
+}else{
+document.getElementById("error").innerText = "Wrong Password!";
+}
+}
+
+/* MATRIX */
 const canvas = document.getElementById("matrix");
 const ctx = canvas.getContext("2d");
 
@@ -125,32 +176,33 @@ const columns = canvas.width / fontSize;
 const drops = [];
 
 for(let x = 0; x < columns; x++)
-    drops[x] = 1;
+drops[x] = 1;
 
 function draw(){
-    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillStyle = "#00ff00";
-    ctx.font = fontSize + "px monospace";
+ctx.fillStyle = "#00ff00";
+ctx.font = fontSize + "px monospace";
 
-    for(let i = 0; i < drops.length; i++){
-        const text = letters.charAt(Math.floor(Math.random() * letters.length));
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+for(let i = 0; i < drops.length; i++){
+const text = letters.charAt(Math.floor(Math.random() * letters.length));
+ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-        if(drops[i] * fontSize > canvas.height && Math.random() > 0.975)
-            drops[i] = 0;
+if(drops[i] * fontSize > canvas.height && Math.random() > 0.975)
+drops[i] = 0;
 
-        drops[i]++;
-    }
+drops[i]++;
+}
 }
 
 setInterval(draw, 35);
 
 window.addEventListener("resize", () => {
-    canvas.height = window.innerHeight;
-    canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
 });
+
 </script>
 
 </body>
