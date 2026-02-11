@@ -3,43 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Benim Sitem</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Cyber Project</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 <style>
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+font-family:'Orbitron',sans-serif;
 scroll-behavior:smooth;
 }
 
 body{
-background:#0f2027;
-color:white;
+background:black;
+color:#00ffcc;
 }
 
 /* Menü */
 nav{
 position:fixed;
 width:100%;
-background:#111;
+background:#050505;
 padding:15px;
 text-align:center;
+border-bottom:1px solid #00ffcc33;
 z-index:1000;
 }
 
 nav a{
-color:white;
+color:#00ffcc;
 text-decoration:none;
-margin:0 20px;
-font-weight:500;
+margin:0 25px;
 transition:0.3s;
 }
 
 nav a:hover{
-color:#00c6ff;
+color:white;
+text-shadow:0 0 10px #00ffcc;
 }
 
 /* Bölümler */
@@ -49,50 +50,59 @@ display:flex;
 justify-content:center;
 align-items:center;
 flex-direction:column;
-padding:40px;
 text-align:center;
+padding:40px;
 }
 
-#anasayfa{
-background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+#home{
+background:radial-gradient(circle at center,#001f1f,#000);
 }
 
-#indir{
-background:#1c1c1c;
+#download{
+background:#050505;
 }
 
-#hakkinda{
-background:#141414;
+#about{
+background:#080808;
 }
 
-#iletisim{
-background:#101010;
+#contact{
+background:#030303;
 }
 
 h1{
+font-size:40px;
 margin-bottom:20px;
+text-shadow:0 0 15px #00ffcc;
+}
+
+p{
+max-width:600px;
+opacity:0.8;
 }
 
 .btn{
 display:inline-block;
-padding:12px 25px;
-background:linear-gradient(90deg,#00c6ff,#0072ff);
-border-radius:30px;
-color:white;
+margin-top:25px;
+padding:15px 35px;
+border:2px solid #00ffcc;
+color:#00ffcc;
 text-decoration:none;
-margin-top:20px;
 transition:0.3s;
+border-radius:5px;
 }
 
 .btn:hover{
-transform:scale(1.05);
-box-shadow:0 0 20px #00c6ff;
+background:#00ffcc;
+color:black;
+box-shadow:0 0 20px #00ffcc;
 }
 
 footer{
 background:black;
 padding:15px;
 text-align:center;
+border-top:1px solid #00ffcc33;
 }
 
 </style>
@@ -100,36 +110,36 @@ text-align:center;
 <body>
 
 <nav>
-<a href="#anasayfa">Ana Sayfa</a>
-<a href="#indir">İndir</a>
-<a href="#hakkinda">Hakkında</a>
-<a href="#iletisim">İletişim</a>
+<a href="#home">Ana Sayfa</a>
+<a href="#download">İndir</a>
+<a href="#about">Hakkında</a>
+<a href="#contact">İletişim</a>
 </nav>
 
-<section id="anasayfa">
-<h1>🚀 Siteme Hoş Geldin</h1>
-<p>Burada projelerimi ve dosyalarımı paylaşıyorum.</p>
-<a href="#indir" class="btn">İndirme Bölümüne Git</a>
+<section id="home">
+<h1>⚡ CYBER PROJECT</h1>
+<p>Resmi indirme ve proje platformuna hoş geldin.</p>
+<a href="#download" class="btn">Sisteme Gir</a>
 </section>
 
-<section id="indir">
-<h1>📥 Dosya İndir</h1>
-<p>En güncel sürümü aşağıdan indirebilirsin.</p>
-<a href="dosya.zip" download class="btn">Şimdi İndir</a>
+<section id="download">
+<h1>📥 İndirme Merkezi</h1>
+<p>En güncel sürüm aşağıda.</p>
+<a href="dosya.zip" download class="btn">DOWNLOAD</a>
 </section>
 
-<section id="hakkinda">
-<h1>ℹ️ Hakkında</h1>
-<p>Bu site kişisel projelerimi paylaşmak için oluşturuldu.</p>
+<section id="about">
+<h1>💻 Hakkında</h1>
+<p>Bu platform projelerimizi paylaşmak için oluşturuldu. Güncellemeler düzenli olarak eklenmektedir.</p>
 </section>
 
-<section id="iletisim">
-<h1>📞 İletişim</h1>
-<p>Email: mailadresin@example.com</p>
+<section id="contact">
+<h1>📡 İletişim</h1>
+<p>Email: mail@example.com</p>
 </section>
 
 <footer>
-© 2026 Benim Sitem
+© 2026 Cyber Project
 </footer>
 
 </body>
