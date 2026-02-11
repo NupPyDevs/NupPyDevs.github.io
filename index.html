@@ -3,86 +3,134 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dosya İndir</title>
+<title>Benim Sitem</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
 }
 
-body {
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
+body{
+background:#0f2027;
+color:white;
 }
 
-.card {
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(15px);
-    padding: 40px;
-    border-radius: 20px;
-    width: 350px;
-    text-align: center;
-    box-shadow: 0 0 40px rgba(0,0,0,0.4);
+/* Menü */
+nav{
+position:fixed;
+width:100%;
+background:#111;
+padding:15px;
+text-align:center;
+z-index:1000;
 }
 
-.card h1 {
-    font-size: 22px;
-    margin-bottom: 10px;
+nav a{
+color:white;
+text-decoration:none;
+margin:0 20px;
+font-weight:500;
+transition:0.3s;
 }
 
-.card p {
-    font-size: 14px;
-    opacity: 0.8;
-    margin-bottom: 25px;
+nav a:hover{
+color:#00c6ff;
 }
 
-.info {
-    background: rgba(255,255,255,0.1);
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    font-size: 13px;
+/* Bölümler */
+section{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+padding:40px;
+text-align:center;
 }
 
-.btn {
-    display: inline-block;
-    padding: 12px 25px;
-    background: #00c6ff;
-    background: linear-gradient(90deg, #00c6ff, #0072ff);
-    border-radius: 30px;
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
+#anasayfa{
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
 }
 
-.btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px #00c6ff;
+#indir{
+background:#1c1c1c;
 }
+
+#hakkinda{
+background:#141414;
+}
+
+#iletisim{
+background:#101010;
+}
+
+h1{
+margin-bottom:20px;
+}
+
+.btn{
+display:inline-block;
+padding:12px 25px;
+background:linear-gradient(90deg,#00c6ff,#0072ff);
+border-radius:30px;
+color:white;
+text-decoration:none;
+margin-top:20px;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px #00c6ff;
+}
+
+footer{
+background:black;
+padding:15px;
+text-align:center;
+}
+
 </style>
 </head>
 <body>
 
-<div class="card">
-    <h1>📦 Dosya Adı Buraya</h1>
-    <p>En güncel sürümü buradan indirebilirsin.</p>
+<nav>
+<a href="#anasayfa">Ana Sayfa</a>
+<a href="#indir">İndir</a>
+<a href="#hakkinda">Hakkında</a>
+<a href="#iletisim">İletişim</a>
+</nav>
 
-    <div class="info">
-        Versiyon: 1.0 <br>
-        Boyut: 15MB <br>
-        Güncelleme: 2026
-    </div>
+<section id="anasayfa">
+<h1>🚀 Siteme Hoş Geldin</h1>
+<p>Burada projelerimi ve dosyalarımı paylaşıyorum.</p>
+<a href="#indir" class="btn">İndirme Bölümüne Git</a>
+</section>
 
-    <a href="dosya.zip" download class="btn">⬇ Şimdi İndir</a>
-</div>
+<section id="indir">
+<h1>📥 Dosya İndir</h1>
+<p>En güncel sürümü aşağıdan indirebilirsin.</p>
+<a href="dosya.zip" download class="btn">Şimdi İndir</a>
+</section>
+
+<section id="hakkinda">
+<h1>ℹ️ Hakkında</h1>
+<p>Bu site kişisel projelerimi paylaşmak için oluşturuldu.</p>
+</section>
+
+<section id="iletisim">
+<h1>📞 İletişim</h1>
+<p>Email: mailadresin@example.com</p>
+</section>
+
+<footer>
+© 2026 Benim Sitem
+</footer>
 
 </body>
 </html>
