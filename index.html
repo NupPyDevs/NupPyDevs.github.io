@@ -7,150 +7,60 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  background: #0d0d0d;
-  color: #e8e8e8;
-  font-family: 'Inter', sans-serif;
-  min-height: 100vh;
-}
-
-header {
-  border-bottom: 1px solid #1e1e1e;
-  padding: 0 48px;
-  display: flex;
-  align-items: stretch;
-  justify-content: space-between;
-}
-
-.logo {
-  font-size: 18px;
-  font-weight: 500;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  padding: 20px 0;
-}
-
-nav {
-  display: flex;
-  align-items: stretch;
-  gap: 0;
-}
-
-nav button {
-  background: none;
-  border: none;
-  border-bottom: 2px solid transparent;
-  color: #555;
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  padding: 20px 24px;
-  transition: color 0.2s, border-color 0.2s;
-  letter-spacing: 0.3px;
-}
-
+body { background: #0d0d0d; color: #e8e8e8; font-family: 'Inter', sans-serif; min-height: 100vh; }
+header { border-bottom: 1px solid #1e1e1e; padding: 0 48px; display: flex; align-items: stretch; justify-content: space-between; }
+.logo { font-size: 18px; font-weight: 500; color: #fff; display: flex; align-items: center; padding: 20px 0; }
+nav { display: flex; align-items: stretch; }
+nav button { background: none; border: none; border-bottom: 2px solid transparent; color: #555; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; padding: 20px 24px; transition: color 0.2s, border-color 0.2s; }
 nav button:hover { color: #aaa; }
-
 nav button.active-home     { color: #fff;    border-bottom-color: #fff; }
 nav button.active-edebiyat { color: #a78bfa; border-bottom-color: #a78bfa; }
 nav button.active-cografya { color: #34d399; border-bottom-color: #34d399; }
 nav button.active-fizik    { color: #60a5fa; border-bottom-color: #60a5fa; }
-
-main {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 56px 48px;
-}
-
+main { max-width: 960px; margin: 0 auto; padding: 56px 48px; }
 .tab-content { display: none; }
 .tab-content.active { display: block; }
-
-.tab-header {
-  margin-bottom: 40px;
-}
-
-.tab-header h2 {
-  font-size: 28px;
-  font-weight: 300;
-  color: #fff;
-  margin-bottom: 8px;
-}
-
-.tab-header p {
-  font-size: 14px;
-  color: #666;
-}
-
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 16px;
-}
-
-.card {
-  background: #111;
-  border: 1px solid #1e1e1e;
-  border-radius: 10px;
-  padding: 24px;
-  cursor: pointer;
-  transition: border-color 0.2s, background 0.2s;
-  text-decoration: none;
-  display: block;
-}
-
+.tab-header { margin-bottom: 40px; }
+.tab-header h2 { font-size: 28px; font-weight: 300; color: #fff; margin-bottom: 8px; }
+.tab-header p { font-size: 14px; color: #666; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.card { background: #111; border: 1px solid #1e1e1e; border-radius: 10px; padding: 24px; cursor: pointer; transition: border-color 0.2s, background 0.2s; text-decoration: none; display: block; }
 .card:hover { border-color: #333; background: #161616; }
-
-.card-label {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
-
+.card-label { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; }
+.label-fizik { color: #60a5fa; }
 .label-edebiyat { color: #a78bfa; }
-.label-cografya  { color: #34d399; }
-.label-fizik     { color: #60a5fa; }
-
-.card-title {
-  font-size: 15px;
-  font-weight: 500;
-  color: #e8e8e8;
-  margin-bottom: 8px;
-  line-height: 1.4;
-}
-
+.label-cografya { color: #34d399; }
+.card-title { font-size: 15px; font-weight: 500; color: #e8e8e8; margin-bottom: 8px; line-height: 1.4; }
 .card-meta { font-size: 12px; color: #555; }
+.card-icon { float: right; font-size: 18px; opacity: 0.3; margin-top: -2px; }
+.empty-card { background: #0d0d0d; border: 1px dashed #1e1e1e; border-radius: 10px; padding: 24px; color: #333; font-size: 13px; display: flex; align-items: center; gap: 8px; }
+footer { border-top: 1px solid #1a1a1a; padding: 24px 48px; text-align: center; font-size: 12px; color: #444; }
 
-.card-icon {
-  float: right;
-  font-size: 18px;
-  opacity: 0.3;
-  margin-top: -2px;
-}
+#game-btn { position: fixed; bottom: 20px; right: 24px; background: none; border: 1px solid #1e1e1e; border-radius: 6px; color: #2a2a2a; font-family: 'Inter', sans-serif; font-size: 11px; padding: 6px 10px; cursor: pointer; transition: color 0.2s, border-color 0.2s; z-index: 100; }
+#game-btn:hover { color: #555; border-color: #333; }
 
-.empty-card {
-  background: #0d0d0d;
-  border: 1px dashed #1e1e1e;
-  border-radius: 10px;
-  padding: 24px;
-  color: #333;
-  font-size: 13px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+#game-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 200; align-items: center; justify-content: center; }
+#game-modal-overlay.open { display: flex; }
+#game-modal { background: #111; border: 1px solid #1e1e1e; border-radius: 14px; padding: 32px; width: 420px; max-width: 90vw; }
+#game-modal h3 { font-size: 16px; font-weight: 500; color: #fff; margin-bottom: 8px; }
+#game-modal p { font-size: 12px; color: #444; margin-bottom: 24px; }
+.game-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.game-item { background: #0d0d0d; border: 1px solid #1e1e1e; border-radius: 8px; padding: 16px; cursor: pointer; transition: border-color 0.2s, background 0.2s; text-align: left; }
+.game-item:hover { border-color: #333; background: #161616; }
+.game-item-title { font-size: 13px; font-weight: 500; color: #e8e8e8; margin-bottom: 4px; }
+.game-item-desc { font-size: 11px; color: #555; }
+#close-modal { margin-top: 20px; background: none; border: none; color: #444; font-size: 12px; cursor: pointer; font-family: 'Inter', sans-serif; }
+#close-modal:hover { color: #888; }
 
-footer {
-  border-top: 1px solid #1a1a1a;
-  padding: 24px 48px;
-  text-align: center;
-  font-size: 12px;
-  color: #444;
-}
+#game-screen { display: none; position: fixed; inset: 0; background: #0d0d0d; z-index: 300; flex-direction: column; align-items: center; justify-content: center; }
+#game-screen.open { display: flex; }
+#game-top { position: absolute; top: 0; left: 0; right: 0; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #1a1a1a; }
+#game-title-el { font-size: 13px; font-weight: 500; color: #fff; }
+#game-score { font-size: 13px; color: #555; }
+#back-btn { background: none; border: 1px solid #1e1e1e; border-radius: 6px; color: #555; font-family: 'Inter', sans-serif; font-size: 11px; padding: 6px 12px; cursor: pointer; }
+#back-btn:hover { color: #aaa; border-color: #333; }
+#game-canvas { border: 1px solid #1e1e1e; border-radius: 8px; }
+#game-msg { position: absolute; bottom: 40px; font-size: 12px; color: #555; }
 </style>
 </head>
 <body>
@@ -166,49 +76,31 @@ footer {
 </header>
 
 <main>
-
-  <!-- ANA SAYFA -->
   <div class="tab-content" id="content-home">
-    <div style="min-height: 70vh; display: flex; flex-direction: column; justify-content: center;">
-      <p style="font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #444; margin-bottom: 20px;">Sunum Arşivi</p>
-      <h1 style="font-size: 52px; font-weight: 300; color: #fff; line-height: 1.2; margin-bottom: 20px;">NupPy</h1>
-      <p style="font-size: 15px; color: #666; max-width: 420px; line-height: 1.8; margin-bottom: 48px;">Edebiyat, Coğrafya ve Fizik derslerine ait sunumların bulunduğu arşiv.</p>
-      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-        <button onclick="switchTab('edebiyat')" style="background: #111; border: 1px solid #1e1e1e; border-radius: 8px; color: #a78bfa; font-family: Inter, sans-serif; font-size: 13px; font-weight: 500; padding: 12px 24px; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#161616'" onmouseout="this.style.background='#111'">Edebiyat →</button>
-        <button onclick="switchTab('cografya')" style="background: #111; border: 1px solid #1e1e1e; border-radius: 8px; color: #34d399; font-family: Inter, sans-serif; font-size: 13px; font-weight: 500; padding: 12px 24px; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#161616'" onmouseout="this.style.background='#111'">Coğrafya →</button>
-        <button onclick="switchTab('fizik')" style="background: #111; border: 1px solid #1e1e1e; border-radius: 8px; color: #60a5fa; font-family: Inter, sans-serif; font-size: 13px; font-weight: 500; padding: 12px 24px; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#161616'" onmouseout="this.style.background='#111'">Fizik →</button>
+    <div style="min-height:70vh;display:flex;flex-direction:column;justify-content:center;">
+      <p style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:20px;">Sunum Arşivi</p>
+      <h1 style="font-size:52px;font-weight:300;color:#fff;line-height:1.2;margin-bottom:20px;">NupPy</h1>
+      <p style="font-size:15px;color:#666;max-width:420px;line-height:1.8;margin-bottom:48px;">Edebiyat, Coğrafya ve Fizik derslerine ait sunumların bulunduğu arşiv.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <button onclick="switchTab('edebiyat')" style="background:#111;border:1px solid #1e1e1e;border-radius:8px;color:#a78bfa;font-family:Inter,sans-serif;font-size:13px;font-weight:500;padding:12px 24px;cursor:pointer;" onmouseover="this.style.background='#161616'" onmouseout="this.style.background='#111'">Edebiyat →</button>
+        <button onclick="switchTab('cografya')" style="background:#111;border:1px solid #1e1e1e;border-radius:8px;color:#34d399;font-family:Inter,sans-serif;font-size:13px;font-weight:500;padding:12px 24px;cursor:pointer;" onmouseover="this.style.background='#161616'" onmouseout="this.style.background='#111'">Coğrafya →</button>
+        <button onclick="switchTab('fizik')" style="background:#111;border:1px solid #1e1e1e;border-radius:8px;color:#60a5fa;font-family:Inter,sans-serif;font-size:13px;font-weight:500;padding:12px 24px;cursor:pointer;" onmouseover="this.style.background='#161616'" onmouseout="this.style.background='#111'">Fizik →</button>
       </div>
     </div>
   </div>
 
-  <!-- EDEBİYAT -->
   <div class="tab-content" id="content-edebiyat">
-    <div class="tab-header">
-      <h2>Edebiyat</h2>
-      <p>Edebiyat dersine ait sunumlar</p>
-    </div>
-    <div class="card-grid">
-      <div class="empty-card">+ Henüz sunum eklenmedi</div>
-    </div>
+    <div class="tab-header"><h2>Edebiyat</h2><p>Edebiyat dersine ait sunumlar</p></div>
+    <div class="card-grid"><div class="empty-card">+ Henüz sunum eklenmedi</div></div>
   </div>
 
-  <!-- COĞRAFYA -->
   <div class="tab-content" id="content-cografya">
-    <div class="tab-header">
-      <h2>Coğrafya</h2>
-      <p>Coğrafya dersine ait sunumlar</p>
-    </div>
-    <div class="card-grid">
-      <div class="empty-card">+ Henüz sunum eklenmedi</div>
-    </div>
+    <div class="tab-header"><h2>Coğrafya</h2><p>Coğrafya dersine ait sunumlar</p></div>
+    <div class="card-grid"><div class="empty-card">+ Henüz sunum eklenmedi</div></div>
   </div>
 
-  <!-- FİZİK -->
   <div class="tab-content" id="content-fizik">
-    <div class="tab-header">
-      <h2>Fizik</h2>
-      <p>Fizik dersine ait sunumlar</p>
-    </div>
+    <div class="tab-header"><h2>Fizik</h2><p>Fizik dersine ait sunumlar</p></div>
     <div class="card-grid">
       <a class="card" href="https://docs.google.com/presentation/d/1JOaDKutwGjgJP_6wn3emF_rlhtrFCe63/edit?usp=sharing&ouid=112056762520635185399&rtpof=true&sd=true" target="_blank">
         <span class="card-icon">↗</span>
@@ -218,10 +110,48 @@ footer {
       </a>
     </div>
   </div>
-
 </main>
 
 <footer>nuppydevs.github.io — NupPy</footer>
+
+<button id="game-btn" onclick="openGameModal()">oyunlar</button>
+
+<div id="game-modal-overlay" onclick="if(event.target===this)closeGameModal()">
+  <div id="game-modal">
+    <h3>Oyun Seç</h3>
+    <p>Mouse ile oynanan mini oyunlar</p>
+    <div class="game-list">
+      <div class="game-item" onclick="startGame('snake')">
+        <div class="game-item-title">Snake</div>
+        <div class="game-item-desc">Klavye ile yılan</div>
+      </div>
+      <div class="game-item" onclick="startGame('pong')">
+        <div class="game-item-title">Pong</div>
+        <div class="game-item-desc">Mouse ile raket</div>
+      </div>
+      <div class="game-item" onclick="startGame('asteroids')">
+        <div class="game-item-title">Asteroids</div>
+        <div class="game-item-desc">Tıkla, vur</div>
+      </div>
+      <div class="game-item" onclick="startGame('breakout')">
+        <div class="game-item-title">Breakout</div>
+        <div class="game-item-desc">Mouse ile tuğla kır</div>
+      </div>
+    </div>
+    <br>
+    <button id="close-modal" onclick="closeGameModal()">kapat</button>
+  </div>
+</div>
+
+<div id="game-screen">
+  <div id="game-top">
+    <span id="game-title-el">Oyun</span>
+    <span id="game-score">Skor: 0</span>
+    <button id="back-btn" onclick="closeGame()">← Geri</button>
+  </div>
+  <canvas id="game-canvas"></canvas>
+  <div id="game-msg"></div>
+</div>
 
 <script>
 function switchTab(tab) {
@@ -231,6 +161,162 @@ function switchTab(tab) {
   document.getElementById('tab-' + tab).className = 'active-' + tab;
 }
 switchTab('home');
+
+function openGameModal() { document.getElementById('game-modal-overlay').classList.add('open'); }
+function closeGameModal() { document.getElementById('game-modal-overlay').classList.remove('open'); }
+
+let gameLoop = null;
+
+function setScore(s) { document.getElementById('game-score').textContent = 'Skor: ' + s; }
+function setMsg(m) { document.getElementById('game-msg').textContent = m; }
+
+function startGame(game) {
+  closeGameModal();
+  document.getElementById('game-screen').classList.add('open');
+  document.getElementById('game-title-el').textContent = {snake:'Snake',pong:'Pong',asteroids:'Asteroids',breakout:'Breakout'}[game];
+  setScore(0); setMsg('');
+  if (gameLoop) cancelAnimationFrame(gameLoop);
+  gameLoop = null;
+  const canvas = document.getElementById('game-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.onmousemove = null; canvas.onclick = null; document.onkeydown = null;
+  if (game==='snake') initSnake(canvas,ctx);
+  else if (game==='pong') initPong(canvas,ctx);
+  else if (game==='asteroids') initAsteroids(canvas,ctx);
+  else if (game==='breakout') initBreakout(canvas,ctx);
+}
+
+function closeGame() {
+  document.getElementById('game-screen').classList.remove('open');
+  if (gameLoop) cancelAnimationFrame(gameLoop);
+  gameLoop = null;
+  const canvas = document.getElementById('game-canvas');
+  canvas.onmousemove = null; canvas.onclick = null; document.onkeydown = null;
+}
+
+/* SNAKE */
+function initSnake(canvas, ctx) {
+  canvas.width=500; canvas.height=500;
+  const sz=20, cols=25, rows=25;
+  let snake=[{x:12,y:12}], dir={x:1,y:0}, nextDir={x:1,y:0};
+  let food=rf(), score=0, alive=true;
+  function rf(){ return {x:Math.floor(Math.random()*cols),y:Math.floor(Math.random()*rows)}; }
+  document.onkeydown=e=>{
+    if(!alive){initSnake(canvas,ctx);return;}
+    if(e.key==='ArrowUp'&&dir.y!==1) nextDir={x:0,y:-1};
+    if(e.key==='ArrowDown'&&dir.y!==-1) nextDir={x:0,y:1};
+    if(e.key==='ArrowLeft'&&dir.x!==1) nextDir={x:-1,y:0};
+    if(e.key==='ArrowRight'&&dir.x!==-1) nextDir={x:1,y:0};
+    e.preventDefault();
+  };
+  let last=0;
+  function draw(ts){
+    if(!alive) return;
+    gameLoop=requestAnimationFrame(draw);
+    if(ts-last<130) return; last=ts;
+    dir=nextDir;
+    const head={x:snake[0].x+dir.x,y:snake[0].y+dir.y};
+    if(head.x<0||head.x>=cols||head.y<0||head.y>=rows||snake.some(s=>s.x===head.x&&s.y===head.y)){
+      alive=false; setMsg('Oyun bitti! Tekrar için yön tuşuna bas.'); return;
+    }
+    snake.unshift(head);
+    if(head.x===food.x&&head.y===food.y){score++;setScore(score);food=rf();}
+    else snake.pop();
+    ctx.fillStyle='#0d0d0d'; ctx.fillRect(0,0,500,500);
+    ctx.fillStyle='#34d399'; ctx.fillRect(food.x*sz+2,food.y*sz+2,sz-4,sz-4);
+    snake.forEach((s,i)=>{ctx.fillStyle=i===0?'#60a5fa':'#1e4a6e';ctx.fillRect(s.x*sz+1,s.y*sz+1,sz-2,sz-2);});
+  }
+  gameLoop=requestAnimationFrame(draw);
+}
+
+/* PONG */
+function initPong(canvas, ctx) {
+  canvas.width=500; canvas.height=400;
+  let py=170,ph=60,pw=10,bx=250,by=200,bvx=4,bvy=3,ey=170,score=0,alive=true;
+  canvas.onmousemove=e=>{const r=canvas.getBoundingClientRect();py=e.clientY-r.top-ph/2;py=Math.max(0,Math.min(canvas.height-ph,py));};
+  function restart(){alive=true;bx=250;by=200;bvx=4;bvy=3;score=0;setScore(0);setMsg('');draw();}
+  canvas.onclick=()=>{if(!alive)restart();};
+  function draw(){
+    if(!alive) return;
+    gameLoop=requestAnimationFrame(draw);
+    bx+=bvx; by+=bvy;
+    if(by<=6||by>=canvas.height-6) bvy*=-1;
+    if(bx<=pw+6&&by>=py&&by<=py+ph){bvx=Math.abs(bvx)+0.1;score++;setScore(score);}
+    if(bx>=canvas.width-pw-6&&by>=ey&&by<=ey+60) bvx=-Math.abs(bvx);
+    ey+=(by-ey-30)*0.07; ey=Math.max(0,Math.min(canvas.height-60,ey));
+    if(bx<0){alive=false;setMsg('Kaybettin! Tıkla.');return;}
+    if(bx>canvas.width){alive=false;setMsg('Kazandın! Tıkla.');return;}
+    ctx.fillStyle='#0d0d0d';ctx.fillRect(0,0,500,400);
+    ctx.setLineDash([5,5]);ctx.strokeStyle='#1a1a1a';ctx.beginPath();ctx.moveTo(250,0);ctx.lineTo(250,400);ctx.stroke();ctx.setLineDash([]);
+    ctx.fillStyle='#60a5fa';ctx.fillRect(0,py,pw,ph);
+    ctx.fillStyle='#a78bfa';ctx.fillRect(canvas.width-pw,ey,pw,60);
+    ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(bx,by,6,0,Math.PI*2);ctx.fill();
+  }
+  gameLoop=requestAnimationFrame(draw);
+}
+
+/* ASTEROIDS */
+function initAsteroids(canvas, ctx) {
+  canvas.width=500; canvas.height=500;
+  let mx=250,my=250,score=0,alive=true,bullets=[],asts=[];
+  for(let i=0;i<6;i++){const a=Math.random()*Math.PI*2,d=150+Math.random()*100;asts.push({x:250+Math.cos(a)*d,y:250+Math.sin(a)*d,vx:(Math.random()-0.5)*2,vy:(Math.random()-0.5)*2,r:18+Math.random()*14});}
+  canvas.onmousemove=e=>{const r=canvas.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;};
+  canvas.onclick=e=>{
+    if(!alive){alive=true;bullets=[];asts=[];score=0;setScore(0);setMsg('');for(let i=0;i<6;i++){const a=Math.random()*Math.PI*2,d=150+Math.random()*100;asts.push({x:250+Math.cos(a)*d,y:250+Math.sin(a)*d,vx:(Math.random()-0.5)*2,vy:(Math.random()-0.5)*2,r:18+Math.random()*14});}draw();return;}
+    const r=canvas.getBoundingClientRect(),tx=e.clientX-r.left,ty=e.clientY-r.top,ang=Math.atan2(ty-250,tx-250);
+    bullets.push({x:250,y:250,vx:Math.cos(ang)*9,vy:Math.sin(ang)*9,life:65});
+  };
+  function draw(){
+    if(!alive) return;
+    gameLoop=requestAnimationFrame(draw);
+    ctx.fillStyle='#0d0d0d';ctx.fillRect(0,0,500,500);
+    bullets=bullets.filter(b=>b.life-->0);
+    bullets.forEach(b=>{b.x+=b.vx;b.y+=b.vy;ctx.fillStyle='#fbbf24';ctx.beginPath();ctx.arc(b.x,b.y,3,0,Math.PI*2);ctx.fill();});
+    asts=asts.filter(a=>{
+      a.x=(a.x+a.vx+500)%500;a.y=(a.y+a.vy+500)%500;
+      let hit=false;
+      bullets=bullets.filter(b=>{if(Math.hypot(b.x-a.x,b.y-a.y)<a.r){hit=true;score++;setScore(score);return false;}return true;});
+      if(!hit){ctx.strokeStyle='#334155';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(a.x,a.y,a.r,0,Math.PI*2);ctx.stroke();}
+      if(Math.hypot(250-a.x,250-a.y)<a.r+10&&!hit){alive=false;setMsg('Çarpıştın! Tıkla.');}
+      return !hit;
+    });
+    if(asts.length<5){const a=Math.random()*Math.PI*2,d=220;asts.push({x:250+Math.cos(a)*d,y:250+Math.sin(a)*d,vx:(Math.random()-0.5)*2,vy:(Math.random()-0.5)*2,r:18+Math.random()*14});}
+    const ang=Math.atan2(my-250,mx-250);
+    ctx.save();ctx.translate(250,250);ctx.rotate(ang);
+    ctx.fillStyle='#60a5fa';ctx.beginPath();ctx.moveTo(14,0);ctx.lineTo(-8,7);ctx.lineTo(-8,-7);ctx.closePath();ctx.fill();
+    ctx.restore();
+  }
+  gameLoop=requestAnimationFrame(draw);
+}
+
+/* BREAKOUT */
+function initBreakout(canvas, ctx) {
+  canvas.width=500; canvas.height=450;
+  let px=210,pw=80,ph=10,bx=250,by=360,bvx=4,bvy=-4,score=0,alive=true;
+  const cols=8,rows=5,bw=54,bh=18,pad=4;
+  const colors=['#a78bfa','#60a5fa','#34d399','#fbbf24','#f87171'];
+  let bricks=[];
+  function initBricks(){bricks=[];for(let r=0;r<rows;r++)for(let c=0;c<cols;c++)bricks.push({x:c*(bw+pad)+8,y:r*(bh+pad)+40,alive:true,color:colors[r]});}
+  initBricks();
+  canvas.onmousemove=e=>{const r=canvas.getBoundingClientRect();px=e.clientX-r.left-pw/2;px=Math.max(0,Math.min(canvas.width-pw,px));};
+  canvas.onclick=()=>{if(!alive){alive=true;bx=250;by=360;bvx=4;bvy=-4;score=0;setScore(0);setMsg('');initBricks();draw();}};
+  function draw(){
+    if(!alive) return;
+    gameLoop=requestAnimationFrame(draw);
+    bx+=bvx;by+=bvy;
+    if(bx<=6||bx>=canvas.width-6) bvx*=-1;
+    if(by<=6) bvy*=-1;
+    if(by>=canvas.height-20&&bx>=px&&bx<=px+pw){bvy=-Math.abs(bvy);bvx+=(bx-px-pw/2)*0.04;}
+    if(by>canvas.height){alive=false;setMsg('Oyun bitti! Tıkla.');return;}
+    bricks.forEach(b=>{if(!b.alive)return;if(bx>b.x&&bx<b.x+bw&&by>b.y&&by<b.y+bh){b.alive=false;bvy*=-1;score++;setScore(score);}});
+    if(bricks.every(b=>!b.alive)){alive=false;setMsg('Kazandın! Tıkla.');return;}
+    ctx.fillStyle='#0d0d0d';ctx.fillRect(0,0,500,450);
+    bricks.forEach(b=>{if(!b.alive)return;ctx.fillStyle=b.color;ctx.globalAlpha=0.75;ctx.fillRect(b.x,b.y,bw,bh);ctx.globalAlpha=1;});
+    ctx.fillStyle='#e8e8e8';ctx.fillRect(px,canvas.height-20,pw,ph);
+    ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(bx,by,6,0,Math.PI*2);ctx.fill();
+  }
+  gameLoop=requestAnimationFrame(draw);
+}
 </script>
 </body>
 </html>
