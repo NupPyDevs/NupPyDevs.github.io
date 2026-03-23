@@ -54,6 +54,7 @@ nav button {
 
 nav button:hover { color: #aaa; }
 
+nav button.active-home     { color: #fff;    border-bottom-color: #fff; }
 nav button.active-edebiyat { color: #a78bfa; border-bottom-color: #a78bfa; }
 nav button.active-cografya { color: #34d399; border-bottom-color: #34d399; }
 nav button.active-fizik    { color: #60a5fa; border-bottom-color: #60a5fa; }
@@ -157,6 +158,7 @@ footer {
 <header>
   <div class="logo">NupPy</div>
   <nav>
+    <button onclick="switchTab('home')" id="tab-home">Ana Sayfa</button>
     <button onclick="switchTab('edebiyat')" id="tab-edebiyat">Edebiyat</button>
     <button onclick="switchTab('cografya')" id="tab-cografya">Coğrafya</button>
     <button onclick="switchTab('fizik')" id="tab-fizik">Fizik</button>
@@ -164,6 +166,20 @@ footer {
 </header>
 
 <main>
+
+  <!-- ANA SAYFA -->
+  <div class="tab-content" id="content-home">
+    <div style="min-height: 70vh; display: flex; flex-direction: column; justify-content: center;">
+      <p style="font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #444; margin-bottom: 20px;">Sunum Arşivi</p>
+      <h1 style="font-size: 52px; font-weight: 300; color: #fff; line-height: 1.2; margin-bottom: 20px;">NupPy</h1>
+      <p style="font-size: 15px; color: #666; max-width: 420px; line-height: 1.8; margin-bottom: 48px;">Edebiyat, Coğrafya ve Fizik derslerine ait sunumların bulunduğu arşiv.</p>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <button onclick="switchTab('edebiyat')" style="background: #111; border: 1px solid #1e1e1e; border-radius: 8px; color: #a78bfa; font-family: Inter, sans-serif; font-size: 13px; font-weight: 500; padding: 12px 24px; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#161616'" onmouseout="this.style.background='#111'">Edebiyat →</button>
+        <button onclick="switchTab('cografya')" style="background: #111; border: 1px solid #1e1e1e; border-radius: 8px; color: #34d399; font-family: Inter, sans-serif; font-size: 13px; font-weight: 500; padding: 12px 24px; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#161616'" onmouseout="this.style.background='#111'">Coğrafya →</button>
+        <button onclick="switchTab('fizik')" style="background: #111; border: 1px solid #1e1e1e; border-radius: 8px; color: #60a5fa; font-family: Inter, sans-serif; font-size: 13px; font-weight: 500; padding: 12px 24px; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#161616'" onmouseout="this.style.background='#111'">Fizik →</button>
+      </div>
+    </div>
+  </div>
 
   <!-- EDEBİYAT -->
   <div class="tab-content" id="content-edebiyat">
@@ -214,7 +230,7 @@ function switchTab(tab) {
   document.getElementById('content-' + tab).classList.add('active');
   document.getElementById('tab-' + tab).className = 'active-' + tab;
 }
-switchTab('fizik');
+switchTab('home');
 </script>
 </body>
 </html>
